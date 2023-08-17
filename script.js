@@ -27,10 +27,20 @@ document.addEventListener("DOMContentLoaded", function () {
       .replace("^2", "**2")
       .replace("^3", "**3");
 
-    const result = eval(convertedValue);
-    currentValue = result.toString();
-    display.value = currentValue;
-    console.log(result);
+      try {
+        const result = eval(convertedValue);
+      
+        const roundedResult = parseFloat(result.toFixed(10));
+        
+        currentValue = roundedResult.toString();
+        display.value = currentValue;
+        
+        console.log(result);
+      } catch (error) {
+        console.log(error);
+        currentValue = "Invalid Input";
+        display.value = currentValue;
+      }
   }
 
   for (let i = 0; i < buttons.length; i++) {
