@@ -1,6 +1,6 @@
 # Dabotics Web Development Internship
 
-# Task 2 Create a Scientific Calculator 
+# Task 2 Create a Scientific Calculator
 
 Here is a scientific calculator with clean UI and minimalist design.
 
