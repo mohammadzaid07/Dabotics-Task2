@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentValue = "";
 
+  function ln(x) {
+    return Math.log(x);
+  }
+
   function evaluateResult() {
     const convertedValue = currentValue
       .replace("×", "*")
@@ -16,10 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .replace("cos", "Math.cos")
       .replace("tan", "Math.tan")
       .replace("π", "Math.PI")
-      .replace("ln", "Math.log")
       .replace("log", "Math.log10")
       .replace("e", "Math.E")
-      .replace("√", "Math.sqrt");
+      .replace("√", "Math.sqrt")
+      .replace("^", "**")
+      .replace("^2", "**2")
+      .replace("^3", "**3");
 
     const result = eval(convertedValue);
     currentValue = result.toString();
@@ -36,9 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (value == "AC") {
           currentValue = "";
           display.value = currentValue;
-
-        } 
-        else if (value == "=") {
+        } else if (value == "DEL") {
+          currentValue = currentValue.slice(0, -1);
+          display.value = currentValue;
+        } else if (value == "=") {
           evaluateResult();
         } else {
           currentValue += value;
