@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const result = eval(convertedValue);
     currentValue = result.toString();
     display.value = currentValue;
+    console.log(result);
   }
 
   for (let i = 0; i < buttons.length; i++) {
@@ -35,7 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (value == "AC") {
           currentValue = "";
           display.value = currentValue;
-        } else if (value == "=") {
+
+        } 
+        else if (value == "=") {
           evaluateResult();
         } else {
           currentValue += value;
